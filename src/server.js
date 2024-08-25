@@ -8,12 +8,14 @@ const app = express();
 
 // Middlewares
 const logging = require("./middleware/logging");
+const apiKey = require("./middleware/apikey");
 // Routes
 const userRoutes = require("./route/user.route");
 
 // Middlewares
 app.use(express.json());
 app.use(logging.requestLogging);
+app.use(apiKey.apiKeyMiddleware);
 // Routes
 app.use("/user", userRoutes);
 
