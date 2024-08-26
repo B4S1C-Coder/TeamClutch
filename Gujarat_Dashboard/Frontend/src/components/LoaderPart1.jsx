@@ -1,55 +1,54 @@
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
+import React, { useEffect } from 'react';
+import Site from './LoaderPart1.js'
 
 const LoaderPart1 = () => {
   useEffect(() => {
-    gsap.fromTo(
-      ".text-container h1",
-      { x: -100, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1 }
-    );
-    gsap.fromTo(
-      ".text-container p",
-      { x: -100, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, stagger: 0.2 }
-    );
+    const site = new Site({ dom: document.querySelector('.canvas') });
   }, []);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      
-      {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 h-full w-full object-cover"
-        src="/LoaderPart1/backgroundVideo.mp4"
-        autoPlay
-        loop
-        muted
-      />
-      
-      {/* Solid Gray Color Overlay */}
-      <div className="h-screen w-full bg-gray-700/75 absolute top-0 left-0 z-10"></div>
-      
-      {/* Logo and Text */}
-      <div className="relative z-10 flex items-center h-full px-12">
-        {/* Logo with Glow Effect */}
-        <div className="logo-container">
-          <img
-            src="/LoaderPart1/Namo_Navodhya_Logo.png"
-            alt="Logo"
-            className="object-contain filter drop-shadow-[0_0_30px_rgba(255,255,255,0.8)]"
-          />
+    <div className="app w-full overflow-hidden h-screen text-white flex bg-zinc-900">
+      <div className="canvas position-fixed z-0 top-0 left-0 w-1/2 h-screen relative">
+        <div className="images w-[25vw] h-[32vw] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img className="absolute w-full h-full opacity-0 object-cover" src="/LoaderPart1/Images/Namo_Navodhya_Logo.png" alt="First" />
+          <img className="absolute w-full h-full opacity-0 object-cover" src="/LoaderPart1/Images/Khushboo_Modi.jpg" alt="Second" />
+          <img className="absolute w-full h-full opacity-0 object-cover" src="/LoaderPart1/Images/Somya_Bansal.jpg" alt="Third" />
+          <img className="absolute w-full h-full opacity-0 object-cover" src="/LoaderPart1/Images/Namanmeet_Singh.jpg" alt="Fourth" />
+          <img className="absolute w-full h-full opacity-0 object-cover" src="/LoaderPart1/Images/Ashmit_Cajla.png" alt="Fifth" />
+          <img className="absolute w-full h-full opacity-0 object-cover" src="/LoaderPart1/Images/Saksham_Mittal.png" alt="Sixth" />
+          <img className="absolute w-full h-full opacity-0 object-cover" src="/LoaderPart1/Images/Priyansh_Saxena.png" alt="Seventh" />
         </div>
-
-        {/* Text */}
-        <div className="text-container text-white">
-          <h1 className="text-4xl font-bold">Team Clutch</h1>
-          <p className="mt-4 text-xl">Khushboo Modi</p>
-          <p className="text-xl">Somya Bansal</p>
-          <p className="text-xl">Namanmeet Singh</p>
-          <p className="text-xl">Ashmit Cajla</p>
-          <p className="text-xl">Saksham Mittal</p>
-          <p className="text-xl">Priyansh Saxena</p>
+      </div>
+      <div className="w-1/2 h-screen flex items-center justify-center">
+        <div className="links flex flex-col gap-10">
+          <a className="transition-all hover:ml-5 opacity-30 hover:opacity-100 block tracking-tighter text-6xl" href="#">
+            <small className="text-xl tracking-normal"></small>
+            Team Clutch
+          </a>
+          <a className="transition-all hover:ml-5 opacity-30 hover:opacity-100 block tracking-tighter text-4xl" href="https://github.com/KhushbooModi2803">
+            <small className="text-xl tracking-normal">01.</small>
+            Khushboo Modi
+          </a>
+          <a className="transition-all hover:ml-5 opacity-30 hover:opacity-100 block tracking-tighter text-4xl" href="https://github.com/somya17bansal">
+            <small className="text-xl tracking-normal">02.</small>
+            Somya Bansal
+          </a>
+          <a className="transition-all hover:ml-5 opacity-30 hover:opacity-100 block tracking-tighter text-4xl" href="https://github.com/NamanmeetSingh">
+            <small className="text-xl tracking-normal">03.</small>
+            Namanmeet Singh
+          </a>
+          <a className="transition-all hover:ml-5 opacity-30 hover:opacity-100 block tracking-tighter text-4xl" href="https://github.com/AshmitCajla">
+            <small className="text-xl tracking-normal">04.</small>
+            Ashmit Cajla
+          </a>
+          <a className="transition-all hover:ml-5 opacity-30 hover:opacity-100 block tracking-tighter text-4xl" href="https://github.com/B4S1C-Coder">
+            <small className="text-xl tracking-normal">05.</small>
+            Saksham Mittal
+          </a>
+          <a className="transition-all hover:ml-5 opacity-30 hover:opacity-100 block tracking-tighter text-4xl" href="https://github.com/priyanshsaxena24">
+            <small className="text-xl tracking-normal">06.</small>
+            Priyansh Saxena
+          </a>
         </div>
       </div>
     </div>
