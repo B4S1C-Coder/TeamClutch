@@ -1,7 +1,7 @@
-import fragmentShader from '../shaders/fragment.glsl';
-import vertexShader from '../shaders/vertex.glsl';
-import * as THREE from 'three';
-import gsap from 'gsap';
+import fragmentShader from "../shaders/fragment.glsl";
+import vertexShader from "../shaders/vertex.glsl";
+import * as THREE from "three";
+import gsap from "gsap";
 
 export default class Site {
   constructor({ dom }) {
@@ -16,7 +16,12 @@ export default class Site {
     this.uEndIndex = 1;
 
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(75, this.width / this.height, 100, 2000);
+    this.camera = new THREE.PerspectiveCamera(
+      75,
+      this.width / this.height,
+      100,
+      2000
+    );
     this.camera.position.z = 200;
     this.camera.fov = 2 * Math.atan(this.height / 2 / 200) * (180 / Math.PI);
 
@@ -48,7 +53,7 @@ export default class Site {
   }
 
   setUpResize() {
-    window.addEventListener('resize', this.resize.bind(this));
+    window.addEventListener("resize", this.resize.bind(this));
   }
 
   setPosition() {
@@ -61,7 +66,7 @@ export default class Site {
 
   addImages() {
     const textureLoader = new THREE.TextureLoader();
-    const textures = this.images.map(img => textureLoader.load(img.src));
+    const textures = this.images.map((img) => textureLoader.load(img.src));
 
     const uniforms = {
       uTime: { value: 0 },
@@ -84,7 +89,7 @@ export default class Site {
       transparent: true,
     });
 
-    this.images.forEach(img => {
+    this.images.forEach((img) => {
       const bounds = img.getBoundingClientRect();
       const geometry = new THREE.PlaneGeometry(bounds.width, bounds.height);
       const mesh = new THREE.Mesh(geometry, this.material);
@@ -115,7 +120,7 @@ export default class Site {
             this.material.uniforms.uStartIndex.value = this.uStartIndex;
             this.material.uniforms.uEndIndex.value = this.uEndIndex;
             this.uStartIndex = this.uEndIndex;
-          }
+          },
         });
       });
     });
