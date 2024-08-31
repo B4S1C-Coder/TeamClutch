@@ -7,7 +7,7 @@ import imagenet_pb2_grpc
 
 from model import resNet50ImagenetLabelPridictor
 
-pridictor = resNet50ImagenetLabelPridictor()
+predictor = resNet50ImagenetLabelPridictor()
 
 class imagenetService(imagenet_pb2_grpc.imagenetServiceServicer):
     def predictLabel(

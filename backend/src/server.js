@@ -11,6 +11,7 @@ const logging = require("./middleware/logging");
 const apiKey = require("./middleware/apikey");
 // Routes
 const userRoutes = require("./route/user.route");
+const imagenetRoutes = require("./route/imagenet.route");
 
 // Middlewares
 app.use(express.json());
@@ -18,6 +19,7 @@ app.use(logging.requestLogging);
 app.use(apiKey.apiKeyMiddleware);
 // Routes
 app.use("/user", userRoutes);
+app.use("/imagenet", imagenetRoutes);
 
 connectToMongoDB();
 

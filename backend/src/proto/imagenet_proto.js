@@ -25,13 +25,16 @@ const client = new imagenet_proto.imagenetService(
 );
 
 exports.predictLabel = (data) => {
-    let predictedLabel = null;
-    client.predictLabel({fileData: data}, (err, response) => {
-        if (err != null) {
-            console.log(err);
-        } else {
-            predictedLabel = response.predictedLabel;
-        }
+    return new Promise((resolve, reject) => {
+        client.predictLabel({fileData: data}, (err, response) => {
+            if (err != null) {
+                console.log(err);
+                reject(err);
+            } else {
+                const predictedLabel = response.predictedLabel;
+                console.log(predictedLabel);
+                resolve(predictedLabel);
+            }
+        });
     });
-    return predictedLabel;
 };
